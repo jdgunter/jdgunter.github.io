@@ -6,6 +6,6 @@ title: Testing...
 First post.
 
 Some formulas: 
-\\[ a + b = c \\]
+$$a + b = c$$
 \\[Av = \lambda v\\] 
 
