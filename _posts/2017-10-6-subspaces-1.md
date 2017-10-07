@@ -60,7 +60,7 @@ od;
 
 Here `irrs[i][j]` is the value of the \\(i\\)th irreducible character for the \\(j\\)th conjugacy class, and `SizesConjugacyClasses(tbl)` is a list of the cardinality of each conjugacy class.
 
-From this decomposition of \\(\chi\)), we can find a related decomposition \\(\rho = \rho_1^{(m_1)} \oplus \rho_2^{(m_2)} \oplus ... \rho_k^{(m_k)} \\). We could further decompose each \\(\rho_i^{(m_i)}\\), but this will not be needed for our purposes. All we need to know is that with these \\(m_i\\)s, we can now solve the following formula for the projection of \\(\mathbb C^n\\) onto the invariant subspace \\(V_i\\) corresponding to the subrepresentation \\(\rho_i^{(m_i)}\\):
+From this decomposition of \\(\chi\\), we can find a related decomposition \\(\rho = \rho_1^{(m_1)} \oplus \rho_2^{(m_2)} \oplus ... \rho_k^{(m_k)} \\). We could further decompose each \\(\rho_i^{(m_i)}\\), but this will not be needed for our purposes. All we need to know is that with these \\(m_i\\)s, we can now solve the following formula for the projection of \\(\mathbb C^n\\) onto the invariant subspace \\(V_i\\) corresponding to the subrepresentation \\(\rho_i^{(m_i)}\\):
 
 \\[ P_i = \frac_{\m_i \chi_i(1)}{\vert G \vert} sum_{g \in G} \chi_i(g^{-1}) \rho(g) \\]
 
