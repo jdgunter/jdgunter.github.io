@@ -24,9 +24,9 @@ Any invariant subspace has an associated subrepresentation \\(\rho\vert_w : G ->
 
 Now, given a representation \\(\rho : G \to GL_n(\mathbb C)\\), its character \\(\chi_\rho : G \to \mathbb C\\) is the trace of the matrix given by \\(\rho(g)\\) for all \\(g \in G\\). Many of our computations dealing with representations of groups can be re-expressed as computations involving their characters instead, which will greatly simplfy the complexity.
 
-Before getting into the formulas and corresponding GAP code, I'm going to take a quick detour to discuss conjugacy classes, which we'll be making heavy use of. Two elements \\(a\\) and \\(b\\) of \\(G\\) are **conjugate** if \\(a = gbg^{-1}\\) for some \\(g \in G\\). This is an equivalence relation, and we can therefore partition \\(G\\) into disjoint sets of elements that conjugate with one another. In other words, \\(Cl(a) = Cl(b)\\) iff a and b conjugate, else \\(Cl(a) \bigcap CL(b) = \emptyset \\). An interesting fact involving characters and conjugacy classes is \\(\chi(a) = \chi(b)\\)  \\(\forall a \in Cl(b)\\), meaning characters are constant within a conjugacy class, so we only need to compute it once. This gives us a nice way of finding the characters of the canonical representation of a group in GAP:
+Before getting into the formulas and corresponding GAP code, I'm going to take a quick detour to discuss conjugacy classes, which we'll be making heavy use of. Two elements \\(a\\) and \\(b\\) of \\(G\\) are **conjugate** if \\(a = gbg^{-1}\\) for some \\(g \in G\\). This is an equivalence relation, and we can therefore partition \\(G\\) into disjoint sets of elements that conjugate with one another. In other words, \\(Cl(a) = Cl(b)\\) iff a and b conjugate, else \\(Cl(a) \cap CL(b) = \emptyset \\). An interesting fact involving characters and conjugacy classes is \\(\chi(a) = \chi(b)\\)  \\(\forall a \in Cl(b)\\), meaning characters are constant within a conjugacy class, so we only need to compute it once. This gives us a nice way of finding the characters of the canonical representation of a group in GAP:
 
-`
+```
 RegularCharacters := function(G,dim)
     local cclasses, ch_list;
     cclasses := ConjugacyClasses(G);
@@ -34,7 +34,9 @@ RegularCharacters := function(G,dim)
                     i -> TraceMat(PermutationMat(Representative(cclasses[i]),dim)));
     return ch_list;
 end;
-`
+```
+
+Another useful fact that will be handy is \\(\chi(g^{-1}) = \chi(g)^*\\), where \\(z^*\\) is the complex conjugate of \\(z\\).
 
 Now, just as a representation can be decomposed into irreducible representations, so can its character. Any character of a group \\(G\\) can be written as \\[ \chi = m_1\chi_1 + m_2\chi_2 + ... + m_k\chi_k \\] where \\(m_i \in \mathbb N\\) and the \\(\chi_i\\) are the characters of irreducible representations of \\(G\\). In GAP, we can use `Irr(CharacterTable(G))` to get a table of these irreducible characters, indexed by the conjugacy classes of \\(G\\).
 
@@ -42,8 +44,19 @@ We can compute each \\(m_i\\) as an inner product of characters by the formula
 \\[ m_i = \frac{1}{\vert G\vert} \sum_{g \in G}\chi_i(g)\chi(g^{-1}) \\]
 
 Using the two facts just discussed, we can re-express this formula as
-\\[ m_i = \frac{1}{\vert G \vert} \sum {Cl(g) \subseteq G} \vert Cl(g) \vert \chi_i(g) \chi(g)* \\]
+\\[ m_i = \frac{1}{\vert G \vert} \sum {Cl(g) \subseteq G} \vert Cl(g) \vert \chi_i(g) \chi(g)^* \\]
 
 Translated into GAP:
+```
+tbl := CharacterTable(G);;
+irrs := Irr(tbl);;
+reg := RegularCharacters(G,dim);;
 
+m := List(irrs, i -> 0);;
+for i in [1..Size(irrs)] do
+    m[i] := Sum([1..Size(SizesConjugacyClasses(tbl))],
+                j -> SizesConjugacyClasses(tbl)[j]*irrs[i][j]*ComplexConjugate(reg[j]) ) / Order(G);
+od;
+```
 
+Here `irrs[i][j]` will be the value of the \\(i\\)th irreducible character for the \\(j\\)th conjugacy class.
