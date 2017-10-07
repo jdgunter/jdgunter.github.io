@@ -3,7 +3,7 @@ layout: post
 title: Computing Invariant Subspaces of Representations for Groups
 ---
 
-In this post, I'm going to be going over the details of the GAP implementation of an algorithm to compute the invariant subspaces of a group, along with a bit of mathematical background.
+In this post, I'll to be going over the details of the GAP implementation of an algorithm to compute the invariant subspaces of a group, along with a bit of mathematical background.
 
 To start off, a **representation** of a group \\(G\\) is a homomorphism \\(\rho : G \to GL_n(V)\\). An **invariant subspace** for \\(\rho\\) is a non-empty subspace \\(W \subset V\\) such that \\(\rho(g)w \in W\\) \\( \forall w \in W\\). In other words, when acted upon by an element of \\(G\\), vectors in \\(W\\) stay within \\(W\\). For example, consider the canonical representation \\(\rho\\) of \\(S_2 = \lbrace (), (12) \rbrace \\), 
 \\[ \rho(()) = 
