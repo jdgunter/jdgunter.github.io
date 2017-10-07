@@ -7,15 +7,15 @@ In this post, I'm going to be going over the details of the GAP implementation o
 
 To start off, an invariant subspace of a representation \\(\rho : G \to GL_n(V)\\) is a non-empty subspace \\(W \subset V\\) such that \\(\rho(g)w \in W \forall w \in W\\). In other words, when acted upon by an element of \\(G\\), vectors in \\(W\\) stay within \\(W\\). For example, consider the canonical representation \\(\rho\\) of \\(S_2 = \{(), (12)\}\\), 
 \\[ \rho(()) = 
-\begin{bmatrix} 
+\begin{matrix} 
 1 & 0 \\
 0 & 1
-\end{bmatrix} \\]
+\end{matrix} \\]
 \\[ \rho((12)) = 
-\begin{bmatrix} 
+\begin{matrix} 
 0 & 1 \\ 
 1 & 0
-\end{bmatrix} \\]
+\end{matrix} \\]
 which permutes the coordinates of the basis vectors. \\(span\{[1,1]\}\\) is an invariant subspace of \\(\rho\\), as permuting the coordinates has no effect on any of the vectors within it.
 
 Any invariant subspace has an associated subrepresentation \\(\rho\vert_w : G -> GL_n(W)\\), consisting of the action of \\(\rho\\) restricted to \\(W\\). If a representation has no subrepresentations (i.e. the only subspace it acts invariantly on is the entire space), then we denote it as an **irreducible representation**. Any reducible representation can be decomposed into a direct sum of irreducible representations, which corresponds into a decomposition of the space \\(V\\) into a direct sum of invariant subspaces. Our goal with this algorithm will be to find a decomposition of \\(\mathbb R^n\\) into a direct sum of invariant subspaces for a representation of some group \\(G\\).
