@@ -5,7 +5,9 @@ title: Constructing Integer Programs from Core Points
 
 In order to test different strategies for solving integer programming problems, we require some example programs that we can test methods on. In this post, I'll be examining a method we can use to generate infinitely many infeasible symmetric integer programming problems, as well as working through an example computation. These constructions will depend primarily on finding core points of groups. I will first discuss what a core point is and how we can find them, before moving on to the construction of the programs.
 
-__Definition:__ A __core point__ of a permutation group \\(G\\) is a point \((z \in \mathbb Z^n\\) such that the orbit polytope \\(\textrm{conv}(Gz)\\) contains no interior integer points, i.e. \\(\textrm{conv}(Gz) \cap \mathbb Z^n = \textrm{conv}(Gz)\\).
+##The Method
+
+__Definition:__ A __core point__ of a permutation group \\(G\\) is a point \\(z \in \mathbb Z^n\\) such that the orbit polytope \\(\textrm{conv}(Gz)\\) contains no interior integer points, i.e. \\(\textrm{conv}(Gz) \cap \mathbb Z^n = \textrm{conv}(Gz)\\).
 
 To construct an infeasible integer programming problem with high symmetry the orbit polytope of a core point gets us most of the way there. By definition it will contain no integer points aside from the polytope's vertices, and since the vertices are constructed from a single point permuted by a group it will have the symmetry of the group. Unfortunately, computing core points is a non-trivial task - luckily, we can find some tools for this in Thomas Rehn's thesis Computing Core Points for Fun and Profit [1]. I won't go over the proofs of these statements, as they require too much background information to state succinctly. Before the statements, we need to define a term:
 
@@ -36,3 +38,29 @@ Due to our method of construction, \\(z\\) will have exactly one coordinate with
 \\[ T' := \lbrace x \in \mathbb{Z}^n : A^{-1}x \geq 0, \sum_{i = 1}^{n} x_i = \sum_{i=1}^n z_i, x_i \leq M - 1 \rbrace \\]
 
 This integer programming problem will be infeasible, with an underlying symmetry group of \\(G\\), and is therefore a good candidate to test the effectiveness of integer programming algorithms that make use of information about the problem's symmetry.
+
+##Example
+
+Let's work out an example for the primitive group with id \\(15-2\\), \\(G := A(6)\\). The invariant subspaces of this group have been previously computed. We'll be working with the subspace
+
+\\[
+\begin{align}
+V &:= \textrm{span}
+\begin{pmatrix}
+  1 \\
+  -1/2 \\
+  -1/2 \\
+  -1/2 \\
+  -1/2 \\
+  -1/2 \\
+  -1/2 \\
+  1/4 \\
+  1/4 \\
+  1/4 \\
+  1/4 \\
+  1/4 \\
+  1/4 \\
+  1/4 \\
+  1/4 \\
+\end{pmatrix}
+\\]
