@@ -70,16 +70,12 @@ We can then compute the projection matrix \\(P : \mathbb R^n \to W\\) by the for
 
 Then \\(e^{(1)}\|_W = Pe^{(1)}\\). This gives us:
 
-\\[ e^{(1)}\|_W = 
-\begin{pmatrix} 
-1/3 & -1/6 & -1/6 & -1/6 & -1/6 & -1/6 & -1/6 & 1/12 & 1/12 & 1/12 & 1/12 & 1/12 & 1/12 & 1/12 & 1/12
-\end{pmatrix}
+\\[ e^{(1)}\|_W = (1/3, -1/6, -1/6, -1/6, -1/6, -1/6, -1/6, 1/12, 1/12, 1/12, 1/12, 1/12, 1/12, 1/12, 1/12)
 \\]
 
 We can see that in order to make this vector integral, we'll have to multiply it by twelve. This gives us a solution for \\(w\\) of:
 
-\\[w = 
-\begin{pmatrix} 
-4 & -2 & -2 & -2 & -2 & -2 & -2 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1
-\end{pmatrix}
+\\[w = (4, -2, -2, -2, -2, -2, -2, 1, 1, 1, 1, 1, 1, 1, 1)
 \\]
+
+Therefore, by Proposition 5.37, we can find infinitely many core points by adding multiples of \\(w\\) to \\(e^{(1)}\\). Then given a core point, we can use the Sage object `IntegerVectorsModPermutationGroup(g)` to find the vertices of the point's orbit polytope, and the construct the inequalities for the corresponding integer program. If we use the core point \\(e^{(1)} + w\\), we get the additional constraints \\(sum_{i=1}^n x_i = 1\\) and \\(x_i \leq 4\\).
