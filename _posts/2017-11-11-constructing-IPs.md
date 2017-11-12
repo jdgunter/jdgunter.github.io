@@ -78,4 +78,4 @@ We can see that in order to make this vector integral, we'll have to multiply it
 \\[w = (4, -2, -2, -2, -2, -2, -2, 1, 1, 1, 1, 1, 1, 1, 1)
 \\]
 
-Therefore, by Proposition 5.37, we can find infinitely many core points by adding multiples of \\(w\\) to \\(e^{(1)}\\). Then given a core point, we can use the Sage object `IntegerVectorsModPermutationGroup(g)` to find the vertices of the point's orbit polytope, and the construct the inequalities for the corresponding integer program. If we use the core point \\(e^{(1)} + w\\), we get the additional constraints \\(sum_{i=1}^n x_i = 1\\) and \\(x_i \leq 4\\).
+Therefore, by Proposition 5.37, we can find infinitely many core points by adding multiples of \\(w\\) to \\(e^{(1)}\\). Then given a core point, we can use the Sage class `IntegerVectorsModPermutationGroup` to find the vertices of the point's orbit polytope and construct the inequalities for the corresponding integer program. If we use the core point \\(e^{(1)} + w\\), we'll also get the additional constraints \\(\sum_{i=1}^n x_i = 1\\) and \\(x_i \leq 4\\).
