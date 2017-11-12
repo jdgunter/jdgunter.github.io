@@ -44,8 +44,7 @@ This integer programming problem will be infeasible, with an underlying symmetry
 Let's work out an example for the primitive group with id \\(15-2\\), \\(G := A(6)\\). The invariant subspaces of this group have been previously computed. We'll be working with the subspace
 
 \\[
-\begin{align}
-V &:= \textrm{span}
+V := \textrm{span}\lbrace
 \begin{pmatrix}
   1 \\
   -1/2 \\
