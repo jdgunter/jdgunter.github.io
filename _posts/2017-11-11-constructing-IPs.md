@@ -9,7 +9,7 @@ __Definition:__ A __core point__ of a permutation group \\(G\\) is a point \((z 
 
 To construct an infeasible integer programming problem with high symmetry the orbit polytope of a core point gets us most of the way there. By definition it will contain no integer points aside from the polytope's vertices, and since the vertices are constructed from a single point permuted by a group it will have the symmetry of the group. Unfortunately, computing core points is a non-trivial task - luckily, we can find some tools for this in Thomas Rehn's thesis Computing Core Points for Fun and Profit [1]. I won't go over the proofs of these statements, as they require too much background information to state succinctly. Before the statements, we need to define a term:
 
-__Definition:__ A point \\(z \in \mathbb Z^n\\) has __globally minimal projection__ with respect to \\(V \subseteq \mathbb R^n \\) if \\(\\|z|_V\\| \leq \\|z'|_V\\|\\) for all \\(z' \in \textrm{aff}(Gz) \cap \mathbb Z^n\\).
+__Definition:__ A point \\(z \in \mathbb Z^n\\) has __globally minimal projection__ with respect to \\(V \subseteq \mathbb R^n \\) if \\(\\|z\|_V\\| \leq \\|z'\|_V\\|\\) for all \\(z' \in \textrm{aff}(Gz) \cap \mathbb Z^n\\).
 
 Next, we have a lemma providing the backbone of our core point constructions.
 
