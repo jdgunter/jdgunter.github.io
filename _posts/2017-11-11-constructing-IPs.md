@@ -7,7 +7,7 @@ In order to test different strategies for solving integer programming problems, 
 
 ## The Method
 
-__Definition:__ A __core point__ of a permutation group \\(G\\) is a point \\(z \in \mathbb Z^n\\) such that the orbit polytope \\(\textrm{conv}(Gz)\\) contains no interior integer points, i.e. \\(\textrm{conv}(Gz) \cap \mathbb Z^n = \textrm{conv}(Gz)\\).
+__Definition:__ A __core point__ of a permutation group \\(G\\) is a point \\(z \in \mathbb Z^n\\) such that the orbit polytope \\(\textrm{conv}(Gz)\\) contains no interior integer points. In other words, \\(\textrm{conv}(Gz) \cap \mathbb Z^n = \textrm{conv}(Gz)\\).
 
 To construct an infeasible integer programming problem with high symmetry the orbit polytope of a core point gets us most of the way there. By definition it will contain no integer points aside from the polytope's vertices, and since the vertices are constructed from a single point permuted by a group it will have the symmetry of the group. Unfortunately, computing core points is a non-trivial task - luckily, we can find some tools for this in Thomas Rehn's thesis Computing Core Points for Fun and Profit [1]. I won't go over the proofs of these statements, as they require too much background information to state succinctly. Before the statements, we need to define a term:
 
@@ -78,4 +78,4 @@ We can see that in order to make this vector integral, we'll have to multiply it
 \\[w = (4, -2, -2, -2, -2, -2, -2, 1, 1, 1, 1, 1, 1, 1, 1)
 \\]
 
-Therefore, by Proposition 5.37, we can find infinitely many core points by adding multiples of \\(w\\) to \\(e^{(1)}\\). Then given a core point, we can use the Sage class `IntegerVectorsModPermutationGroup` to find the vertices of the point's orbit polytope and construct the inequalities for the corresponding integer program. If we use the core point \\(e^{(1)} + w\\), we'll also get the additional constraints \\(\sum_{i=1}^n x_i = 1\\) and \\(x_i \leq 4\\).
+Therefore, by Proposition 5.37, we can find infinitely many core points by adding multiples of \\(w\\) to \\(e^{(1)}\\). Then given a core point, we can use the Sage class `IntegerVectorsModPermutationGroup` to find the vertices of the point's orbit polytope and construct the inequalities for the corresponding integer program. If we use the core point \\(e^{(1)} + w\\), we will also get the additional constraints \\(\sum_{i=1}^n x_i = 1\\) and \\(x_i \leq 4\\).
