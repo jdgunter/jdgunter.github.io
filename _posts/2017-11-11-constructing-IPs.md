@@ -41,25 +41,25 @@ This integer programming problem will be infeasible, with an underlying symmetry
 
 ##Example
 
-Let's work out an example for the primitive group with id \\(15-2\\), \\(G := A(6)\\). The invariant subspaces of this group have been previously computed. We'll be working with the subspace
+Let's work out an example for the primitive group with id \\(15-2\\), \\(G := A(6)\\). The invariant subspaces of this group have been previously computed. We'll be working with the subspace \\(V\\), with the matrix of basis vectors
 
 \\[
-V := \textrm{span}\lbrace
+A_V := \textrm{span}\lbrace
 \begin{pmatrix}
-  1 \\\
-  -1/2 \\\
-  -1/2 \\\
-  -1/2 \\\
-  -1/2 \\\
-  -1/2 \\\
-  -1/2 \\\
-  1/4 \\\
-  1/4 \\\
-  1/4 \\\
-  1/4 \\\
-  1/4 \\\
-  1/4 \\\
-  1/4 \\\
-  1/4 \\\
+   1 &   0 &   0 &   0 &   0 \\\
+-1/2 &   1 &   0 &   0 &   0 \\\
+-1/2 &  -1 &   0 &   0 &   0 \\\
+-1/2 &   0 &   1 &   0 &   0 \\\
+-1/2 &   0 &  -1 &   0 &   0 \\\
+-1/2 &   0 &   0 &   1 &   0 \\\
+-1/2 &   0 &   0 &  -1 &   0 \\\
+ 1/4 &-1/2 &-1/2 &-1/2 &   1 \\\
+ 1/4 &-1/2 &-1/2 &-1/2 &  -1 \\\
+ 1/4 &-1/2 & 1/2 & 1/2 &  -1 \\\
+ 1/4 &-1/2 & 1/2 & 1/2 &   1 \\\
+ 1/4 & 1/2 &-1/2 & 1/2 &  -1 \\\
+ 1/4 & 1/2 &-1/2 & 1/2 &   1 \\\
+ 1/4 & 1/2 & 1/2 &-1/2 &  -1 \\\
+ 1/4 & 1/2 & 1/2 &-1/2 &   1 \\\
 \end{pmatrix}
 \\]
