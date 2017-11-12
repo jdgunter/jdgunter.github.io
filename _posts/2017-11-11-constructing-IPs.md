@@ -25,6 +25,14 @@ __Proposition 5.37:__ Let \\(G \leq S_n\\) be a primitive permutation group, and
 
 __Proof Sketch:__ Let \\(G \leq S_n\\) be primitive, \\(\mathbb R^n = \textrm{span}\textbf{1}\oplus V \oplus W\\). By Corollary 5.36, \\(\textrm{Stab$\_G$}(e^{(1)}\|_V) = \textrm{Stab$_G$}(e^{(1)}) = \textrm{Stab$\_G$}(e^{(1)}\|_W)\\), and so \\(\textrm{Stab$\_G$}(e^{(1)}\|_V) \leq \textrm{Stab$\_G$}(e^{(1)}\|_W)\\). \\(G\\) being primitive implies that \\(e^{(1)}\|_W \neq 0\\), so we can find a \\(w := ke^{(1)}\|_W\\) such that \\(w \in W \cap \mathbb Z^n\\). Then by Lemma 5.19, for all \\(m \in \mathbb Z\\), \\(e^{(1)} + mw\\) is a core point.
 
-It has been computationally verified that for all primitive groups of degree \\(n leq 127\\), \\(e^{(1)}\\) is globally minimally for at least one invariant subspace, and for most it is minimal for all. Therefore this gives us an easy method of computing core points for any such group. Before looking at an example, I'll first discuss how we can use one of these core points to make an integer program.
+It has been computationally verified that for all primitive groups of degree \\(n \leq 127\\), \\(e^{(1)}\\) is globally minimally for at least one invariant subspace, and for most it is minimal for all. Therefore this gives us an easy method of computing core points for any such group. Before looking at an example, I'll first discuss how we can use one of these core points to make an integer program.
 
-Let \\(z \in \mathbb Z\\) be one such core point constructed using this method. 
+Let \\(z \in \mathbb Z\\) be one such core point constructed using this method, and let \\(A\\) be the matrix with the vertices of \\(T := \textrm{conv}(Gz)\\) as columns. Then an inequality description for \\(T\\) is:
+
+\\[ T = \lbrace x \in \mathbb{R}^n : A^{-1}x \geq 0, \sum_{i = 1}^{n} x_i = \sum_{i=1}^n z_i \rbrace \\]
+
+Due to our method of construction, \\(z\\) will have exactly one coordinate with maximal value. Denote this by \\(M\\). Then we can get an inequality description for the integer points inside \\(T\\), minus the vertices, with:
+
+\\[ T' := \lbrace x \in \mathbb{Z}^n : A^{-1}x \geq 0, \sum_{i = 1}^{n} x_i = \sum_{i=1}^n z_i, x_i \leq M - 1 \rbrace \\]
+
+This integer programming problem will be infeasible, with an underlying symmetry group of \\(G\\), and is therefore a good candidate to test the effectiveness of integer programming algorithms that make use of information about the problem's symmetry.
