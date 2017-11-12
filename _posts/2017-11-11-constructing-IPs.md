@@ -7,4 +7,6 @@ In order to test different strategies for solving integer programming problems, 
 
 ## Definitions
 
-__Core Point:__ Let \\(G \leq S_n\\) be a permutation group. A point \\( z \in \mathbb Z\\) is a core point for \\(G\\) if and only if the orbit polytope conv(\\(Gz\\)) is lattice-free. That is, conv(\\(Gz\\))\\(\cap \mathbb Z = \\)conv(\\(Gz\\)).
+__Orbit Polytope:__ Let \\(G \leq S_n\\) be a permutation group. The orbit polytope of \\(G\\) on a point \\(z \in \mathbb Z^n\\) is the convex hull of \\( {gz : g \in G } \\). Here the group action is on position, meaning it permutes the coordinates of the vector. For example, given \\(g = (1,2), z = (1,2,3,4)\\), \\(gz = (2,1,3,4)\\).
+
+__Core Point:__ Let \\(G \leq S_n\\). A point \\( z \in \mathbb Z^n\\) is a core point for \\(G\\) if and only if the orbit polytope conv(\\(Gz\\)) is lattice-free. That is, conv(\\(Gz\\))\\(\cap \mathbb Z^n = \\)conv(\\(Gz\\)).
