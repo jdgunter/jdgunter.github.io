@@ -13,7 +13,7 @@ __Definition:__ A point \\(z \in \mathbb Z^n\\) has __globally minimal projectio
 
 Next, we have a lemma providing the backbone of our core point constructions.
 
-__Lemma 5.19:__ Let \\(G \leq S_n\\), and \\(\mathbb R^n = span\mathbb 1 \oplus V \oplus W\\) be a decomposition of \\(\mathbb R^n\\) into invariant subspaces. Let \\(z^{(0)} \in \mathbb Z^n\\) have globally minimal projection with regard to \\(V\\) and be a core point for \\(\textrm{Stab$\_G$}(z^{(0)}\|_V)\\). Let \\(w \in W \cap \mathbb Z^n\\) such that \\(\textrm{Stab$\_G$}(z^{(0)}\|_V) \\) \\(\leq \textrm{Stab$\_G$}(w)\\). Then for all \\(m \in \mathbb Z\\), the polytope \\(P_m := \textrm{conv}G(z^{(0)} + mw)\\) is lattice-free, and \\(z^{(0)} + mw\\) is a core point for \\(G\\).
+__Lemma 5.19:__ Let \\(G \leq S_n\\), and \\(\mathbb R^n = span\mathbb 1 \oplus V \oplus W\\) be a decomposition of \\(\mathbb R^n\\) into invariant subspaces. Let \\(z^{(0)} \in \mathbb Z^n\\) have globally minimal projection with respect to \\(V\\) and be a core point for \\(\textrm{Stab$\_G$}(z^{(0)}\|_V)\\). Let \\(w \in W \cap \mathbb Z^n\\) such that \\(\textrm{Stab$\_G$}(z^{(0)}\|_V) \\) \\(\leq \textrm{Stab$\_G$}(w)\\). Then for all \\(m \in \mathbb Z\\), the polytope \\(P_m := \textrm{conv}G(z^{(0)} + mw)\\) is lattice-free, and \\(z^{(0)} + mw\\) is a core point for \\(G\\).
 
 __Proposition 5.37:__ Let \\(G \leq S_n\\) be a primitive permutation group, and let \\(V \subset \mathbb R^n\\) be a rational invariant subspace. If \\(e^{(1)}\\) has globally minimal projection onto \\(V\\), then there are infinitely many core points in layer one. The corresponding orbit polytopes are simplices.
 
