@@ -9,4 +9,4 @@ In order to test different strategies for solving integer programming problems, 
 
 __Orbit Polytope:__ Let \\(G \leq S_n\\) be a permutation group. The orbit polytope of \\(G\\) on a point \\(z \in \mathbb Z^n\\) is the convex hull of \\( \lbrace gz : g \in G \rbrace \\). Here the group action is on position, meaning it permutes the coordinates of the vector. For example, given \\(g = (1,2), z = (z_1,z_2,z_3,z_4)\\), \\(gz = (z_2,z_1,z_3,z_4)\\).
 
-__Core Point:__ Let \\(G \leq S_n\\). A point \\( z \in \mathbb Z^n\\) is a core point for \\(G\\) if and only if the orbit polytope conv(\\(Gz\\)) is lattice-free, containing no integer points excepting its vertices. That is, conv(\\(Gz\\))\\(\cap \mathbb Z^n = \\)conv(\\(Gz\\)).
+__Core Point:__ Let \\(G \leq S_n\\). A point \\( z \in \mathbb Z^n\\) is a core point for \\(G\\) if and only if the orbit polytope conv(\\(Gz\\)) is lattice-free, containing no integer points excepting its vertices. That is, conv(\\(Gz)\cap \mathbb Z^n = \textrm{conv}(Gz\\)).
