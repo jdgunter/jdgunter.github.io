@@ -5,7 +5,7 @@ title: Constructing Integer Programs from Core Points
 
 In order to test different strategies for solving integer programming problems, we require some example programs that we can test methods on. In this post, I'll be examining a method we can use to generate infinitely many infeasible symmetric integer programming problems, as well as working through an example computation. These constructions will depend primarily on finding core points of groups. I will first discuss what a core point is and how we can find them, before moving on to the construction of the programs.
 
-##The Method
+## The Method
 
 __Definition:__ A __core point__ of a permutation group \\(G\\) is a point \\(z \in \mathbb Z^n\\) such that the orbit polytope \\(\textrm{conv}(Gz)\\) contains no interior integer points, i.e. \\(\textrm{conv}(Gz) \cap \mathbb Z^n = \textrm{conv}(Gz)\\).
 
@@ -39,12 +39,12 @@ Due to our method of construction, \\(z\\) will have exactly one coordinate with
 
 This integer programming problem will be infeasible, with an underlying symmetry group of \\(G\\), and is therefore a good candidate to test the effectiveness of integer programming algorithms that make use of information about the problem's symmetry.
 
-##Example
+## An Example
 
-Let's work out an example for the primitive group with id \\(15-2\\), \\(G := A(6)\\). The invariant subspaces of this group have been previously computed. We'll be working with the subspace \\(V\\), with the matrix of basis vectors
+Let's work out an example for the primitive group with id \\(15-2\\), \\(G := A(6)\\). The invariant subspaces of this group have been previously computed. We'll be working with the subspace \\(W\\), with the matrix of basis vectors
 
 \\[
-A_V :=
+A :=
 \begin{bmatrix}
    1 &   0 &   0 &   0 &   0 \\\
 -1/2 &   1 &   0 &   0 &   0 \\\
@@ -62,4 +62,24 @@ A_V :=
  1/4 & 1/2 & 1/2 &-1/2 &  -1 \\\
  1/4 & 1/2 & 1/2 &-1/2 &   1 \\\
 \end{bmatrix}
+\\]
+
+We can then compute the projection matrix \\(P : \mathbb R^n \to W\\) by the formula:
+
+\\[ P = A(A^T A)^{-1}A^T \\]
+
+Then \\(e^{(1)}\|_W = Pe^{(1)}\\). This gives us:
+
+\\[ e^{(1)}\|_W = 
+\begin{pmatrix} 
+1/3 & -1/6 & -1/6 & -1/6 & -1/6 & -1/6 & -1/6 & 1/12 & 1/12 & 1/12 & 1/12 & 1/12 & 1/12 & 1/12 & 1/12
+\end{pmatrix}
+\\]
+
+We can see that in order to make this vector integral, we'll have to multiply it by twelve. This gives us a solution for \\(w\\) of:
+
+\\[w = 
+\begin{pmatrix} 
+4 & -2 & -2 & -2 & -2 & -2 & -2 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1
+\end{pmatrix}
 \\]
