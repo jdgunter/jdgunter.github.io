@@ -7,7 +7,7 @@ In order to test different strategies for solving integer programming problems, 
 
 ## The Method
 
-__Definition:__ A __core point__ of a permutation group \\(G\\) is a point \\(z \in \mathbb Z^n\\) such that the orbit polytope \\(\textrm{conv}(Gz)\\) contains no interior integer points. In other words, \\(\textrm{conv}(Gz) \cap \mathbb Z^n = \textrm{conv}(Gz)\\).
+__Definition:__ A __core point__ of a permutation group \\(G\\) is a point \\(z \in \mathbb Z^n\\) such that the orbit polytope \\(\textrm{conv}(Gz)\\) contains no interior integer points. In other words, \\(\textrm{conv}(Gz) \cap \mathbb Z^n = Gz\\).
 
 To construct an infeasible integer programming problem with high symmetry, the orbit polytope of a core point gets us most of the way there. By definition it will contain no integer points aside from the polytope's vertices, and since the vertices are constructed from a single point permuted by a group, it will have the symmetry of the group. Unfortunately, computing core points is a non-trivial task. Luckily, we can find some tools for this in Thomas Rehn's thesis Computing Core Points for Fun and Profit \[[1]]. I won't be going over the proofs of these statements, as they require too much background information to state succinctly (although I will sketch the proof for one proposition). Before the statements, we first need to define a term:
 
